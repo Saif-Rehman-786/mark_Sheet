@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <!-- ===========================================css cdn ==========================================-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container w-50 mt-4">
+        <h2 class="text-center">Student Details</h2>
+        <hr class="w-50 mx-auto">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control mb-3" placeholder="Enter First Name..." id="fname">
+                    <input type="text" class="form-control" placeholder="Enter Insitute..." id="inst">
+
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" placeholder="Enter Last Name..." id="lname">
+                    <input type="text" class="form-control" placeholder="Enter Batch..." id="batch">
+                </div>
+            </div>
+            <h2 class="text-center mt-3">Student Details</h2>
+            <hr class="w-50 mx-auto">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control mb-3" placeholder="Enter R1 Marks..." id="r1">
+                    <input type="text" class="form-control" placeholder="Enter E-project Marks.." id="epro">
+
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" placeholder="Enter R2 Marks..." id="r2">
+                    <input type="text" class="form-control" placeholder="Enter Modular Marks..." id="mod">
+                </div>
+            </div>
+            <button type="button" class="btn btn-warning d-flex m-auto mt-3" onclick="getData()">Submit</button>
+        </form>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">firstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">InsitutName</th>
+                    <th scope="col">BatchCode</th>
+                    <th scope="col">R1 Marks</th>
+                    <th scope="col">R2 Marks</th>
+                    <th scope="col">eProject Marks</th>
+                    <th scope="col">Modular Marks</th>
+                    <th scope="col">Total Marks</th>
+                    <th scope="col">Percentage</th>
+                    <th scope="col">Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                    <td id="3"></td>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                    <td id="6"></td>
+                    <td id="7"></td>
+                    <td id="8"></td>
+                    <td id="9"></td>
+                    <td id="10"></td>
+                    <td id="11"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+        function getData() {
+            var firstName = document.getElementById('fname').value;
+            document.getElementById('1').innerHTML = firstName;
+
+            var lastName = document.getElementById('lname').value;
+            document.getElementById('2').innerHTML = lastName;
+
+            
+            var Insitute = document.getElementById('inst').value;
+            document.getElementById('3').innerHTML = Insitute;
+
+            
+            var Batch = document.getElementById('batch').value;
+            document.getElementById('4').innerHTML = Batch;
+
+            var R1 = document.getElementById('r1').value;
+            document.getElementById('5').innerHTML = R1;
+
+            var R2 = document.getElementById('r2').value;
+            document.getElementById('6').innerHTML = R2;
+
+            var eproject = document.getElementById('epro').value;
+            document.getElementById('7').innerHTML = eproject;
+
+            var Modular = document.getElementById('mod').value;
+            document.getElementById('8').innerHTML = Modular;
+
+            var Total= parseFloat(R1) + parseFloat(R2 )+ parseFloat(eproject) + parseFloat(Modular);
+            document.getElementById('9').innerHTML=Total;
+
+            var percent= Math.round((Total / 400) * 100);
+            document.getElementById('10').innerHTML=percent + '%';
+
+            switch(true)
+
+            {
+                case(percent >=80 ):
+                document.getElementById('11').innerHTML="A-1";
+                document.getElementById('11').style.color="green";
+                break;
+
+                case(percent >=80 && percent <=79):
+                document.getElementById('11').innerHTML="A";
+                document.getElementById('11').style.color="green";
+                break;
+
+                case(percent >=70 && percent <=79):
+                document.getElementById('11').innerHTML="B";
+                document.getElementById('11').style.color="green";
+                break;
+                case(percent >=60 && percent <=69):
+                document.getElementById('11').innerHTML="C";
+                document.getElementById('11').style.color="green";
+                break;
+                case(percent >=50 && percent <=50 ):
+                document.getElementById('11').innerHTML="D";
+                document.getElementById('11').style.color="green";
+                break;
+                case(percent >=40 && percent <=49 ):
+                document.getElementById('11').innerHTML="a-1";
+                document.getElementById('11').style.color="green";
+                break;
+                
+                default:
+                document.getElementById('11').innerHTML="Better Luck For Next Time!";
+                document.getElementById('11').style.color="red";
+            }
+
+
+
+
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>
